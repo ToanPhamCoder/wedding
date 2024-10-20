@@ -3,10 +3,10 @@ import { FaRegCommentDots, FaEnvelope } from "react-icons/fa"; // Sử dụng re
 const TitleComponent = () => {
   return (
     <div className="day_area  relative p-1 text-center">
-      <div className="flex justify-end items-center text-center p-2 pt-1 pb-3">
+      <div className="flex pl-[200px] items-center text-center ">
         <p
           className="m-0 text-[#3d3d3d] absolute bottom-[20px] font-roboto text-lg"
-          style={{ left: "calc(100% - 270px)" }}
+          style={{ left: "calc(100% - 280px)" }}
         >
           Chúng tôi
         </p>

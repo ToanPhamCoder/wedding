@@ -33,7 +33,7 @@ const Main = () => {
 
   // Sử dụng useEffect để tạo trái tim mỗi 500ms
   useEffect(() => {
-    const interval = setInterval(createHeart, 300);
+    const interval = setInterval(createHeart, 800);
     return () => clearInterval(interval); // Cleanup interval khi component bị unmounted
   }, []);
 
@@ -42,7 +42,7 @@ const Main = () => {
       id="heart-container"
       className="min-h-screen flex justify-center bg-[#cccccc] "
     >
-      <div className="w-[575px]">
+      <div className="w-[430px]">
         <div className="bg-white p-2">
           <TitleComponent />
           <SliderComponent />
