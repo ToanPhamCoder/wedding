@@ -1,0 +1,27 @@
+import { FaRegCommentDots, FaEnvelope } from "react-icons/fa"; // Sử dụng react-icons cho các biểu tượng
+
+const TitleComponent = () => {
+  return (
+    <div className="day_area  relative p-1 text-center">
+      <div className="flex justify-end items-center text-center p-2 pt-1 pb-3">
+        <p
+          className="m-0 text-[#3d3d3d] absolute bottom-[20px] font-roboto text-lg"
+          style={{ left: "calc(100% - 270px)" }}
+        >
+          Chúng tôi
+        </p>
+        <div className="mx-2 ">
+          <p className="text-[80px] font-bold m-0 font-bellota  text-[#dcbdc5] leading-none border-b-[#dcbdc5] border-b-small">
+            01
+          </p>
+          <p className="text-[80px] font-bold m-0 font-bellota  text-[#dcbdc5] leading-none ">
+            12
+          </p>
+        </div>
+        <p className=" text-lg  m-0 font-roboto">Sắp kết hôn.</p>
+      </div>
+    </div>
+  );
+};
+
+export default TitleComponent;
