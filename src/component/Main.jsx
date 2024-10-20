@@ -5,6 +5,7 @@ import TitleComponent from "./TitleComponent";
 import Album from "./Album";
 import CountdownComponent from "./CountDownComponent";
 import Thanks from "./Thanks";
+import LoveStory from "./LoveStory";
 const Main = () => {
   const createHeart = () => {
     const heartContainer = document.getElementById("heart-container");
@@ -12,13 +13,14 @@ const Main = () => {
     heart.classList.add("heart");
 
     // Đặt vị trí trái tim ngẫu nhiên theo chiều ngang
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left = Math.random() * 80 + 10 + "vw"; // Random value between 10vw and 90vw
 
     // Kích thước ngẫu nhiên cho trái tim
     heart.style.width = heart.style.height = Math.random() * 20 + 20 + "px";
 
     // Thời gian rơi ngẫu nhiên cho mỗi trái tim
     heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    heart.style.top = window.scrollY + "px";
 
     // Thêm trái tim vào container
     heartContainer.appendChild(heart);
@@ -31,7 +33,7 @@ const Main = () => {
 
   // Sử dụng useEffect để tạo trái tim mỗi 500ms
   useEffect(() => {
-    const interval = setInterval(createHeart, 500);
+    const interval = setInterval(createHeart, 300);
     return () => clearInterval(interval); // Cleanup interval khi component bị unmounted
   }, []);
 
@@ -48,6 +50,7 @@ const Main = () => {
           <Album />
           <CountdownComponent />
           <Thanks></Thanks>
+          <LoveStory />
         </div>
       </div>
     </main>

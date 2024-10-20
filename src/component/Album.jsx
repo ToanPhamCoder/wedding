@@ -11,7 +11,7 @@ const Album = () => {
         </p>
       </div>
 
-      <WeddingGallery />
+      <WeddingGallery  />
     </div>
   );
 };
