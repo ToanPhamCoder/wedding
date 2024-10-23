@@ -43,8 +43,11 @@ const CountdownComponent = () => {
         <Calendar
           value={new Date(2024, 11, 1)} // December 1st, 2024
           locale="vi-VN" // Vietnamese locale
-          className="w-full" // Make the calendar take full width
+          className="w-full rounded-lg border" // Add border-radius with Tailwind
           tileDisabled={() => true} // Disable interaction with all day tiles
+          formatShortWeekday={(locale, date) =>
+          ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'][date.getDay()]
+        } 
         />
       </div>
 

@@ -20,7 +20,7 @@ const Main = () => {
 
     // Thời gian rơi ngẫu nhiên cho mỗi trái tim
     heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-    heart.style.top = -100 + "px"; // Set a negative value so it starts off-screen
+    heart.style.top = window.scrollY + -50 + "px";
 
     // Thêm trái tim vào container
     heartContainer.appendChild(heart);

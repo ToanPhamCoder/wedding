@@ -31,7 +31,7 @@ const TextContent = () => {
     <div className="relative flex items-center justify-center">
       <motion.div
         id="text-content"
-        className="text-container absolute top-[-70px] left-6 text-9xl  text-[#dcbdc5] font-great"
+        className="text-container absolute top-[-70px] left-6 text-[110px]  text-[#dcbdc5] font-great"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={textVariants}

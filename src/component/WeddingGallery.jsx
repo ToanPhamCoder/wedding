@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion"; // Import framer-motion
+import * as allImages from "../assets/images"; // Import all images as an object
 
 const WeddingGallery = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const images = [
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-    "https://images.unsplash.com/photo-1729008920276-e9e61d13c2db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Studio photo
-  ];
+
+  const images = Object.values(allImages);
 
   const thumbnails = [
     {

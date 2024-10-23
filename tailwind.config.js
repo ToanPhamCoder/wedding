@@ -14,6 +14,7 @@ export default {
         bellota: ['"Bellota Text"', "cursive"], // Thêm font vào Tailwind
         roboto: ["Roboto", "sans-serif"],
         great: ["Great Vibes", "cursive"],
+        quicksand: ["Quicksand", "sans-serif"],
       },
     },
   },

@@ -5,8 +5,8 @@ const TitleComponent = () => {
     <div className="day_area  relative p-1 text-center">
       <div className="flex pl-[200px] items-center text-center ">
         <p
-          className="m-0 text-[#3d3d3d] absolute bottom-[20px] font-roboto text-lg"
-          style={{ left: "calc(100% - 280px)" }}
+          className="  text-[#3d3d3d] absolute bottom-[60%] font-roboto text-lg"
+          style={{ left: "calc(100% - 290px)" }}
         >
           Chúng tôi
         </p>
@@ -18,7 +18,7 @@ const TitleComponent = () => {
             12
           </p>
         </div>
-        <p className=" text-lg  m-0 font-roboto">Sắp kết hôn.</p>
+        <p className=" text-lg  mt-1  0 font-roboto">Sắp kết hôn.</p>
       </div>
     </div>
   );

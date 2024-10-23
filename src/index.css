@@ -5,12 +5,16 @@
 *,
 *::after,
 *::before {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  
 }
 
 .main-container {
   /* - header - menu - footer */
   min-height: calc(100vh - 48px - 24px - 36px);
+}
+.no-caret {
+  caret-color: transparent; /* Ẩn con trỏ nhấp nháy */
 }
 /* 
 .ant-select-clear {
@@ -82,6 +86,7 @@
 body {
   margin: 0;
   background-color: #f0f0f0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #heart-container {
@@ -214,4 +219,11 @@ body {
 }
 .react-calendar__tile:disabled {
   background: none !important; /* Màu sắc chữ */
+}
+.react-calendar__tile {
+  color: gray !important; /* Thay đổi màu chữ của tất cả các ngày thành màu xám */
+}
+
+.react-calendar__tile:disabled {
+  color: gray  !important; /* Nếu có ô nào bị disable, bạn có thể thay đổi màu ở đây */
 }
