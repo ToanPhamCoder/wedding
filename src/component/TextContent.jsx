@@ -8,7 +8,7 @@ const TextContent = () => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
 
-      if (scrollTop > 160 && scrollTop < 900) {
+      if (scrollTop > 100 && scrollTop < 900) {
         setIsVisible(true);
       } else {
         setIsVisible(false);

@@ -34,19 +34,19 @@ const SendMessage = () => {
 
   // Cấu hình hiệu ứng cho hai nút
   const buttonVariants = {
-    hiddenLeft: { opacity: 0, x: -100 }, // Xuất hiện từ ngoài màn hình
-    hiddenRight: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0 }, // Hiện ở vị trí bình thường
+    hiddenLeft: {  x: -170 }, // Xuất hiện từ ngoài màn hình
+    hiddenRight: {x: 230 },
+    visible: {  x: 0 }, // Hiện ở vị trí bình thường
   };
 
   return (
-    <div className="flex justify-center space-x-4 mt-12">
+    <div className="flex justify-center space-x-4 mt-12 overflow-hidden">
       {/* Nút Gửi lời chúc */}
       <motion.button
         initial="hiddenLeft"
         animate={isVisible ? "visible" : "hiddenLeft"}
         variants={buttonVariants}
-        transition={{ duration: isVisible ? 0.5 : 0.2 }} // Xuất hiện chậm (0.5s), biến mất nhanh (0.2s)
+        transition={{ duration: isVisible ? 0.5 : 0.2 ,ease: "easeInOut"  }} // Xuất hiện chậm (0.5s), biến mất nhanh (0.2s)
         className="flex items-center px-4 py-2 bg-[#dcbdc5] text-white rounded-md hover:bg-gray-800 transition duration-300"
       >
         <FaRegCommentDots className="mr-2" /> Gửi lời chúc
