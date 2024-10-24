@@ -1,67 +1,49 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { FaRegCommentDots, FaEnvelope } from "react-icons/fa";
 
 const SendMessage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0); // Lưu vị trí cuộn trước đó
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      console.log("scrollTop", scrollTop);
 
-      // Nếu cuộn xuống, hiển thị button
+      // Điều kiện để hiển thị các nút dựa trên vị trí cuộn
       if (scrollTop > 270 && scrollTop < 1000) {
         setIsVisible(true);
       } else {
-        // Nếu cuộn lên, ẩn button
         setIsVisible(false);
       }
-
-      // Cập nhật vị trí cuộn trước đó
-      setLastScrollTop(scrollTop);
     };
 
-    // Lắng nghe sự kiện cuộn
+    // Thêm sự kiện scroll
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup sự kiện cuộn khi component bị unmounted
+    // Xóa sự kiện scroll khi component bị unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollTop]); // Theo dõi lastScrollTop
-
-  // Cấu hình hiệu ứng cho hai nút
-  const buttonVariants = {
-    hiddenLeft: {  x: -170 }, // Xuất hiện từ ngoài màn hình
-    hiddenRight: {x: 230 },
-    visible: {  x: 0 }, // Hiện ở vị trí bình thường
-  };
+  }, []);
 
   return (
     <div className="flex justify-center space-x-4 mt-12 overflow-hidden">
       {/* Nút Gửi lời chúc */}
-      <motion.button
-        initial="hiddenLeft"
-        animate={isVisible ? "visible" : "hiddenLeft"}
-        variants={buttonVariants}
-        transition={{ duration: isVisible ? 0.5 : 0.2 ,ease: "easeInOut"  }} // Xuất hiện chậm (0.5s), biến mất nhanh (0.2s)
-        className="flex items-center px-4 py-2 bg-[#dcbdc5] text-white rounded-md hover:bg-gray-800 transition duration-300"
+      <button
+        className={`flex items-center px-4 py-2 bg-[#dcbdc5] text-white rounded-md hover:bg-gray-800 transition-all duration-500 transform ${
+          isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+        }`}
       >
         <FaRegCommentDots className="mr-2" /> Gửi lời chúc
-      </motion.button>
+      </button>
 
       {/* Nút Xác nhận tham dự */}
-      <motion.button
-        initial="hiddenRight"
-        animate={isVisible ? "visible" : "hiddenRight"}
-        variants={buttonVariants}
-        transition={{ duration: isVisible ? 0.5 : 0.2 }} // Xuất hiện chậm (0.5s), biến mất nhanh (0.2s)
-        className="flex items-center px-4 py-2 bg-[#dcbdc5] text-white rounded-md hover:bg-gray-800 transition duration-300"
+      <button
+        className={`flex items-center px-4 py-2 bg-[#dcbdc5] text-white rounded-md hover:bg-gray-800 transition-all duration-500 transform ${
+          isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+        }`}
       >
         <FaEnvelope className="mr-2" /> Xác Nhận Tham Dự
-      </motion.button>
+      </button>
     </div>
   );
 };
