@@ -6,6 +6,10 @@ import Album from "./Album";
 import CountdownComponent from "./CountDownComponent";
 import Thanks from "./Thanks";
 import LoveStory from "./LoveStory";
+import LoiNgo from "./LoiNgo";
+import WeddingEvents from "./WeddingEvents";
+import BrideGroomSection from "./BrideGroomSection";
+import ThankYouSection from "./ThankYouSection";
 const Main = () => {
   const createHeart = () => {
     const heartContainer = document.getElementById("heart-container");
@@ -40,7 +44,7 @@ const Main = () => {
   return (
     <main
       id="heart-container"
-      className="min-h-screen flex justify-center bg-[#cccccc] "
+      className=" flex justify-center bg-[#cccccc] "
     >
       <div className="w-[430px]">
         <div className="bg-white p-2">
@@ -51,6 +55,10 @@ const Main = () => {
           <CountdownComponent />
           <Thanks></Thanks>
           <LoveStory />
+          <LoiNgo/>
+          <WeddingEvents/>
+          <BrideGroomSection/>
+          <ThankYouSection/>
         </div>
       </div>
     </main>

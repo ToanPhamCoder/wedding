@@ -37,6 +37,9 @@ const CountdownComponent = () => {
     <div className="container mx-auto text-center py-10 font-sans">
       {/* Calendar */}
       <h2 className="text-xl font-bold mb-4 text-gray-700">
+        Lễ Tân Hôn
+      </h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-700">
         THÁNG 12 / 2024 (Dương Lịch)
       </h2>
       <div className="flex justify-center w-full px-8">
