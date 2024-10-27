@@ -1,4 +1,3 @@
-import WeddingGallery from "@/component/WeddingGallery";
 import React from "react";
 
 const Album = () => {
