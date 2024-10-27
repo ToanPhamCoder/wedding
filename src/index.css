@@ -8,6 +8,9 @@
   font-family: 'Quicksand', sans-serif;
   
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .main-container {
   /* - header - menu - footer */
@@ -242,3 +245,16 @@ body {
   transform: translateX(0);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+@keyframes blink-border {
+  0%, 100% {
+    box-shadow: 0 0 10px 5px rgba(200, 50, 70, 0.4); /* Subtle shadow */
+  }
+  50% {
+    box-shadow: 0 0 15px 8px rgba(217, 142, 161, 0.6); /* Brighter pink glow */
+  }
+}
+
+.animate-blink-border {
+  animation: blink-border 1s infinite;
+}
+
