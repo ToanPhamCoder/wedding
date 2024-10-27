@@ -1,7 +1,5 @@
-// import { Header } from "./components";
-// import Home from "./components/Home";
 import "./index.css";
-import Main from "./component/Main";
+import Main from "./layout/Main";
 
 function App() {
   return <Main />;

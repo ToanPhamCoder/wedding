@@ -4,20 +4,46 @@ import { FaVolumeMute } from "react-icons/fa";
 import { FaVolumeHigh } from "react-icons/fa6";
 
 const MusicPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false); // Track if playback has started
   const audioRef = useRef(null);
+
+  // Function to start audio and update state
+  const startAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+        setHasStarted(true); // Mark that audio has started
+      }).catch((error) => {
+        console.log("Playback failed:", error);
+      });
+    }
+  };
+
+  // Scroll listener to start audio if user scrolls
+  useEffect(() => {
+    const handleScrollOrClick = () => {
+      if (!hasStarted) {
+        startAudio(); // Try to start audio playback on first scroll or click
+      }
+    };
+
+    // Add scroll event listener and click event on the button for initial interaction
+    window.addEventListener("scroll", handleScrollOrClick);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollOrClick);
+    };
+  }, [hasStarted]);
 
   const togglePlayPause = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.muted = false; // Unmute audio when user interacts
-        audioRef.current.play().catch((error) => {
-          console.log("Playback failed:", error); 
-        });
+        startAudio(); // Reuse startAudio to handle click-based playback
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -27,21 +53,15 @@ const MusicPlayer = () => {
         onClick={togglePlayPause}
         className="animate-blink-border w-12 h-12 rounded-full flex items-center justify-center bg-[#d98ea1] shadow-lg transition duration-300 hover:bg-[#c35d77]"
       >
-        {isPlaying ? <FaVolumeMute color="white" /> : <FaVolumeHigh color="white" />}
+        {isPlaying ? <FaVolumeHigh color="white" /> : <FaVolumeMute color="white" />}
       </button>
 
       <span className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 shadow transition duration-300">
-        {isPlaying ? 'Đang phát nhạc!' : 'Click vào đây để phát nhạc!'}
+        {isPlaying ? 'Đang phát nhạc!' : 'Nhấn hoặc cuộn để phát nhạc!'}
       </span>
 
-      {/* Use autoPlay but keep audio muted initially */}
-      <audio
-        ref={audioRef}
-        src="https://cdn.biihappy.com/ziiweb/wedding-musics/IDo-911.mp3"
-        autoPlay
-        loop
-        style={{ display: 'none' }}
-      />    </div>
+      <audio ref={audioRef} src={video} loop style={{ display: 'none' }} />
+    </div>
   );
 };
 

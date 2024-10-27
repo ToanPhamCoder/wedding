@@ -1,5 +1,6 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import MusicPlayer from "./MusicPlayer";
+import LoadingSpinner from "./LoadingSpinner";
 
 // Lazy load each component
 const SliderComponent = lazy(() => import("./SliderComponents"));
@@ -43,8 +44,8 @@ const Main = () => {
     <main id="heart-container" className="flex justify-center bg-[#cccccc]">
       <div className="w-[430px]">
         <div className="bg-white p-2">
-          <Suspense fallback={<div>Loading...</div>}>
-            <TitleComponent />
+        <Suspense fallback={<LoadingSpinner />}> 
+        <TitleComponent />
             <SliderComponent />
             <SendMessage />
             <Album />
