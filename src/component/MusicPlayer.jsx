@@ -7,24 +7,14 @@ const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(null);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      // Autoplay muted audio on load
-      audioRef.current.muted = true;
-      audioRef.current.play().catch((error) => {
-        console.log("Autoplay blocked by the browser:", error);
-      });
-    }
-  }, []);
-
   const togglePlayPause = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.muted = false; // Unmute when starting to play
+        audioRef.current.muted = false; // Unmute audio when user interacts
         audioRef.current.play().catch((error) => {
-          console.log("Playback failed:", error);
+          console.log("Playback failed:", error); 
         });
       }
       setIsPlaying(!isPlaying);
@@ -44,8 +34,14 @@ const MusicPlayer = () => {
         {isPlaying ? 'Đang phát nhạc!' : 'Click vào đây để phát nhạc!'}
       </span>
 
-      <audio ref={audioRef} src={video} loop />
-    </div>
+      {/* Use autoPlay but keep audio muted initially */}
+      <audio
+        ref={audioRef}
+        src="https://cdn.biihappy.com/ziiweb/wedding-musics/IDo-911.mp3"
+        autoPlay
+        loop
+        style={{ display: 'none' }}
+      />    </div>
   );
 };
 
