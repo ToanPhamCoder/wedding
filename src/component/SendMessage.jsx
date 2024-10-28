@@ -42,13 +42,11 @@ const Modal = ({ isOpen, onClose }) => {
             className="p-2 border rounded"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
           <select
             className="p-2 border rounded"
             value={attendance}
             onChange={(e) => setAttendance(e.target.value)}
-            required
           >
             <option value="">Bạn có thể tham dự không?</option>
             <option value="Có, tôi sẽ tới đó">Có, tôi sẽ tới đó</option>
@@ -59,7 +57,6 @@ const Modal = ({ isOpen, onClose }) => {
             className="p-2 border rounded"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            required
           />
           <button
             type="submit"

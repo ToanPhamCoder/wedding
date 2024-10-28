@@ -8,16 +8,16 @@ const WeddingGallery = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const images = [
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729843557/1DC04847-min_ehb4b1.jpg",
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729780050/1DC04505_lpal9a.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729843557/1DC04847-min_ehb4b1.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729780050/1DC04505_lpal9a.jpg",
 
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729843546/1DC04750-min_s5mqil.jpg",
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729843550/1DC04770-min_xy1r7k.jpg",
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729843540/1DC04648-min_sq3fwm.jpg",
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729843550/1DC04823-min_whrcil.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729843546/1DC04750-min_s5mqil.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729843550/1DC04770-min_xy1r7k.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729843540/1DC04648-min_sq3fwm.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729843550/1DC04823-min_whrcil.jpg",
 
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729866674/1DC04104-min_ztakoc.jpg",
-    "https://res.cloudinary.com/dpohykmqq/image/upload/v1729866700/1DC04008-min_sog8an.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729866674/1DC04104-min_ztakoc.jpg",
+    "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729866700/1DC04008-min_sog8an.jpg",
   ];
 
   const thumbnails = [

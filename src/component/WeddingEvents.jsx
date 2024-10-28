@@ -1,14 +1,46 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { Calendar } from "@nextui-org/calendar";
+import "react-calendar/dist/Calendar.css";
+import { parseDate } from "@internationalized/date";
+import { vi } from "date-fns/locale";
+import { I18nProvider } from "@react-aria/i18n";
+import ButtonCommon from "@/common/ButtonCommon";
 
 const WeddingEvent = ({ title, time, location, image }) => {
+  const [isCalendarOpen, setCalendarOpen] = useState(false);
+
+  // Toggle the calendar modal open/close state
+  const toggleCalendarModal = () => setCalendarOpen(!isCalendarOpen);
+
+  // Open location in Google Maps
+  const openGoogleMaps = () => {
+    const encodedAddress = encodeURIComponent(location);
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+    window.open(mapUrl, "_blank");
+  };
+
+  const convertToISODate = (dateString) => {
+    console.log("match", dateString);
+
+    // Match against "Ngày DD-MM-YYYY" or "Ngày DD/MM/YYYY"
+    const match = dateString.match(/(\d{2})[-/](\d{2})[-/](\d{4})/);
+    if (match) {
+      const [_, day, month, year] = match;
+      // Return in "YYYY-MM-DD" format
+      console.log("match", year, month, <day></day>);
+      const dateString = `${year}-${month}-${day}`;
+      return parseDate(dateString);
+    }
+
+    return null; // Return null if the format doesn't match
+  };
+
   return (
     <div className="bg-white shadow-lg rounded-md p-4 mb-6 flex items-center space-x-4">
-      <img
-        src={image}
-        alt={title}
-        className="w-36  object-cover rounded-md"
-      />
+      {/* Event Image */}
+      <img src={image} alt={title} className="w-36 object-cover rounded-md" />
+
+      {/* Event Details */}
       <div>
         <h2 className="text-xl font-semibold">{title}</h2>
         <p className="text-gray-600 mb-2">
@@ -17,14 +49,28 @@ const WeddingEvent = ({ title, time, location, image }) => {
         </p>
         <p className="text-gray-500 mb-4">{location}</p>
         <div className="flex space-x-4">
-          <button className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
-            Xem lịch
-          </button>
-          <button className="text-sm px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
-            Xem bản đồ
-          </button>
+          <ButtonCommon onClick={toggleCalendarModal}>Xem lịch</ButtonCommon>
+          <ButtonCommon onClick={openGoogleMaps}>Xem bản đồ</ButtonCommon>
         </div>
       </div>
+
+      {/* Calendar Modal */}
+      {isCalendarOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50 ">
+          <div className="bg-white w-[356px] rounded-lg shadow-lg p-4 flex flex-col items-center">
+            <h2 className="text-xl font-semibold mb-4">LỊCH {title}</h2>
+            <Calendar
+              defaultValue={convertToISODate(time.date)}
+              calendarWidth={300}
+              color="danger"
+
+            />
+            <div className="flex justify-end mt-4 w-full">
+            <ButtonCommon onClick={toggleCalendarModal}>Đóng</ButtonCommon>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -38,32 +84,34 @@ const WeddingEvents = () => {
         date: "Ngày 30/11/2024",
       },
       location: "Tư gia nhà gái - Trung Hậu Đông, Tiền Phong, Mê Linh, Hà Nội",
-      image: "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
+      image:
+        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
     },
     {
       title: "TIỆC CƯỚI NHÀ NAM",
       time: {
         morning: "Chiều 17:30",
-        date: "Ngày 08/10/2024",
+        date: "Ngày 01-12-2024",
       },
       location: "793/57/16 Trần Xuân Xoạn,P. Tân Hưng, Q.7, TP.HCM",
-      image: "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
+      image:
+        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
     },
   ];
 
   return (
-      <div className="bg-gray-100 py-12">
-        <div className="container mx-auto">
-          <h1 className="text-3xl font-bold text-center mb-8">Sự Kiện Cưới</h1>
-          <div>
-            {events.map((event, index) => (
-              <WeddingEvent
-                key={index}
-                title={event.title}
-                time={event.time}
-                location={event.location}
-                image={event.image}
-              />
+    <div className="bg-gray-100 py-12">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center mb-8">Sự Kiện Cưới</h1>
+        <div>
+          {events.map((event, index) => (
+            <WeddingEvent
+              key={index}
+              title={event.title}
+              time={event.time}
+              location={event.location}
+              image={event.image}
+            />
           ))}
         </div>
       </div>

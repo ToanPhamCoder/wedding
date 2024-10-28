@@ -14,19 +14,21 @@ const BrideGroomSection = () => {
     <div className="bg-gray-100 py-12">
       <div className="container mx-auto text-center">
         {/* Title */}
-        <h2 className="text-4xl font-semibold mb-6 font-cursive">Cô Dâu & Chú Rể</h2>
+        <h2 className="text-4xl font-semibold mb-6 font-cursive">
+          Cô Dâu & Chú Rể
+        </h2>
 
         {/* Image */}
         <BrideGroomContent
-  content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..." 
-  name="Hồng Toàn" 
-  url="https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg" 
-/>
-<BrideGroomContent
-  content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..." 
-  name="Hưng Bình" 
-  url="https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg" 
-/>
+          content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..."
+          name="Hồng Toàn"
+          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729759646/1DC02498_fft5ga.jpg"
+        />
+        <BrideGroomContent
+          content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..."
+          name="Hưng Bình"
+          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729759646/1DC02498_fft5ga.jpg"
+        />
 
         {/* Signature */}
       </div>

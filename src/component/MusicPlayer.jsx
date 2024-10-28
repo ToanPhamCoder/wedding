@@ -1,40 +1,52 @@
 import React, { useState, useRef, useEffect } from 'react';
-import video from "../assets/video/videoplayback.mp4";
 import { FaVolumeMute } from "react-icons/fa";
 import { FaVolumeHigh } from "react-icons/fa6";
-
+import video from "../assets/video/videoplayback.mp4"
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false); // Track if playback has started
+  const [autoplayFailed, setAutoplayFailed] = useState(false);
   const audioRef = useRef(null);
 
-  // Function to start audio and update state
-  const startAudio = () => {
+  // Attempt to start audio and handle autoplay restrictions
+  const startAudio = async () => {
     if (audioRef.current) {
-      audioRef.current.play().then(() => {
+      try {
+        await audioRef.current.play();
         setIsPlaying(true);
-        setHasStarted(true); // Mark that audio has started
-      }).catch((error) => {
-        console.log("Playback failed:", error);
-      });
+        setAutoplayFailed(false);
+      } catch (error) {
+        console.log("Autoplay failed:", error);
+        setAutoplayFailed(true);
+        setIsPlaying(false);
+      }
     }
   };
 
-  // Scroll listener to start audio if user scrolls
+  // Try autoplay when component mounts
   useEffect(() => {
-    const handleScrollOrClick = () => {
-      if (!hasStarted) {
-        startAudio(); // Try to start audio playback on first scroll or click
+    startAudio();
+  }, []);
+
+  // Handle user interaction if autoplay fails
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (autoplayFailed) {
+        startAudio();
       }
     };
 
-    // Add scroll event listener and click event on the button for initial interaction
-    window.addEventListener("scroll", handleScrollOrClick);
+    // Add multiple interaction listeners to increase chances of successful playback
+    const events = ['click', 'touchstart', 'keydown', 'mousedown'];
+    events.forEach(event => {
+      document.addEventListener(event, handleUserInteraction, { once: true });
+    });
 
     return () => {
-      window.removeEventListener("scroll", handleScrollOrClick);
+      events.forEach(event => {
+        document.removeEventListener(event, handleUserInteraction);
+      });
     };
-  }, [hasStarted]);
+  }, [autoplayFailed]);
 
   const togglePlayPause = () => {
     if (audioRef.current) {
@@ -42,7 +54,7 @@ const MusicPlayer = () => {
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        startAudio(); // Reuse startAudio to handle click-based playback
+        startAudio();
       }
     }
   };
@@ -51,16 +63,23 @@ const MusicPlayer = () => {
     <div className="fixed bottom-4 left-4 flex items-center space-x-3">
       <button
         onClick={togglePlayPause}
-        className="animate-blink-border w-12 h-12 rounded-full flex items-center justify-center bg-[#d98ea1] shadow-lg transition duration-300 hover:bg-[#c35d77]"
+        className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#d98ea1] shadow-lg transition duration-300 hover:bg-[#c35d77] ${
+          autoplayFailed ? 'animate-bounce' : ''
+        }`}
       >
         {isPlaying ? <FaVolumeHigh color="white" /> : <FaVolumeMute color="white" />}
       </button>
 
       <span className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg border border-gray-300 shadow transition duration-300">
-        {isPlaying ? 'Đang phát nhạc!' : 'Nhấn hoặc cuộn để phát nhạc!'}
+        {isPlaying ? 'Đang phát nhạc!' : 'Nhấn để phát nhạc!'}
       </span>
 
-      <audio ref={audioRef} src={video} loop style={{ display: 'none' }} />
+      <audio 
+        ref={audioRef} 
+        src={video} 
+        loop 
+        style={{ display: 'none' }} 
+      />
     </div>
   );
 };
