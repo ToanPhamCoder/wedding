@@ -11,6 +11,7 @@ const CardStory = ({
   animate,
   variants,
   transition,
+  image,
 }) => {
   return (
     <motion.div
@@ -47,11 +48,7 @@ const CardStory = ({
           <h4 className="text-gray-600 text-md mb-1 pt-4">{date}</h4>
           <h3 className="text-xl font-bold mb-2 text-gray-800">{title}</h3>
           <p className="text-gray-600 text-sm">{content}</p>
-          <img
-            src="https://images.unsplash.com/photo-1728931710234-7b7b145103e7?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dg" // Replace with your image URL
-            alt="Chat Image"
-            className="rounded-lg mt-4"
-          />
+          <img src={image} alt="Chat Image" className="rounded-lg mt-4" />
         </div>
       </div>
     </motion.div>

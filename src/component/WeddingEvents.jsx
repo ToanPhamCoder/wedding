@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Calendar } from "@nextui-org/calendar";
 import "react-calendar/dist/Calendar.css";
 import { parseDate } from "@internationalized/date";
-import { vi } from "date-fns/locale";
-import { I18nProvider } from "@react-aria/i18n";
 import ButtonCommon from "@/common/ButtonCommon";
 
-const WeddingEvent = ({ title, time, location, image }) => {
+const WeddingEvent = ({ title, time, location, image, id }) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false);
 
   // Toggle the calendar modal open/close state
@@ -15,8 +13,13 @@ const WeddingEvent = ({ title, time, location, image }) => {
   // Open location in Google Maps
   const openGoogleMaps = () => {
     const encodedAddress = encodeURIComponent(location);
-    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-    window.open(mapUrl, "_blank");
+    if (id === 1) {
+      const mapUrl = "https://maps.app.goo.gl/nHEtHEh477Wp7yBe9";
+      window.open(mapUrl, "_blank");
+    } else {
+      const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+      window.open(mapUrl, "_blank");
+    }
   };
 
   const convertToISODate = (dateString) => {
@@ -63,10 +66,9 @@ const WeddingEvent = ({ title, time, location, image }) => {
               defaultValue={convertToISODate(time.date)}
               calendarWidth={300}
               color="danger"
-
             />
             <div className="flex justify-end mt-4 w-full">
-            <ButtonCommon onClick={toggleCalendarModal}>Đóng</ButtonCommon>
+              <ButtonCommon onClick={toggleCalendarModal}>Đóng</ButtonCommon>
             </div>
           </div>
         </div>
@@ -78,24 +80,26 @@ const WeddingEvent = ({ title, time, location, image }) => {
 const WeddingEvents = () => {
   const events = [
     {
+      id: 1,
       title: "TIỆC CƯỚI NHÀ NỮ",
       time: {
         morning: "Sáng: 10:00 - Chiều 16:00",
         date: "Ngày 30/11/2024",
       },
-      location: "Tư gia nhà gái - Trung Hậu Đông, Tiền Phong, Mê Linh, Hà Nội",
+      location: "Số 07 Đường D4, Khu phố 3, Phường 1, TX Kiến Tường, Long An",
       image:
         "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
     },
     {
-      title: "TIỆC CƯỚI NHÀ NAM",
+      id: 2,
+      title: "TIỆC CƯỚI NHÀ NAM", 
       time: {
         morning: "Chiều 17:30",
         date: "Ngày 01-12-2024",
       },
       location: "793/57/16 Trần Xuân Xoạn,P. Tân Hưng, Q.7, TP.HCM",
       image:
-        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
+        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729780038/1DC01685_itetou.jpg",
     },
   ];
 
@@ -111,6 +115,7 @@ const WeddingEvents = () => {
               time={event.time}
               location={event.location}
               image={event.image}
+              id={event.id}
             />
           ))}
         </div>

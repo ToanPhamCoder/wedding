@@ -27,7 +27,7 @@ export default {
           colors: {
             background: "#202124", // or DEFAULT
           },
-        },
+        },  
       },
     }),
   ],
