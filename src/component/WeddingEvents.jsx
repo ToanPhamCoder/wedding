@@ -88,18 +88,18 @@ const WeddingEvents = () => {
       },
       location: "Số 07 Đường D4, Khu phố 3, Phường 1, TX Kiến Tường, Long An",
       image:
-        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729759646/1DC02498_fft5ga.jpg",
+        "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729759646/1DC02498_fft5ga.jpg",
     },
     {
       id: 2,
-      title: "TIỆC CƯỚI NHÀ NAM", 
+      title: "TIỆC CƯỚI NHÀ NAM",
       time: {
         morning: "Chiều 17:30",
         date: "Ngày 01-12-2024",
       },
       location: "793/57/16 Trần Xuân Xoạn,P. Tân Hưng, Q.7, TP.HCM",
       image:
-        "https://res.cloudinary.com/dpohykmqq/image/upload/v1729780038/1DC01685_itetou.jpg",
+        "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729780038/1DC01685_itetou.jpg",
     },
   ];
 

@@ -20,14 +20,14 @@ const BrideGroomSection = () => {
 
         {/* Image */}
         <BrideGroomContent
-          content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..."
+          content="..."
           name="Hồng Toàn"
-          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729759646/1DC02498_fft5ga.jpg"
+          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730348012/z5984328116970_f3ea09606dabfa3daa56311394605185_ntkzkz.jpg"
         />
         <BrideGroomContent
-          content="Giữa lòng thành phố được mệnh danh là đáng sống nhất Việt Nam, có một chàng bộ đội..."
+          content="..."
           name="Hưng Bình"
-          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1729759646/1DC02498_fft5ga.jpg"
+          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730347990/z5984328111861_94a9ca9357a47ca95dcdd4f2cb17161e_rupfrd.jpg"
         />
 
         {/* Signature */}

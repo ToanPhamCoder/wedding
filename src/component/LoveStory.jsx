@@ -81,7 +81,7 @@ const LoveStory = () => {
         content="Mình- Hồng Toàn, lần đầu tiên trong đời được ăn món sương sáo ngon như vậy. Sau đó là những bữa cơm ăn chung với nhau khi còn là sinh viên chung khu trọ. Em thì chăm nấu còn mình rất thích đồ ăn cô ấy nấu."
         type="left"
         image={
-          "https://res.cloudinary.com/dpohykmqq/image/upload/v1730295525/IMG_4673_iadthu.jpg"
+          "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730295525/IMG_4673_iadthu.jpg"
         }
       />
 
@@ -96,7 +96,7 @@ const LoveStory = () => {
         content="Mình - Hưng Bình thật lòng chưa nhận ra Toàn thích mình cho đến khi anh ấy chủ động nắm tay. Ban đầu anh chỉ dám nắm 1 ngón tay cái thôi làm mình cảm thấy đáng yêu hết sức. Mãi đến sau thấy mình không từ chối mới nắm cả bàn ^^"
         type="right"
         image={
-          "https://res.cloudinary.com/dpohykmqq/image/upload/v1730296300/IMG_5216_fvxzer.jpg"
+          "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730296300/IMG_5216_fvxzer.jpg"
         }
       />
 
@@ -111,7 +111,7 @@ const LoveStory = () => {
         content="Tối đó hai đứa đi dạo, mình tỏ tình nhưng cô ấy bảo không cần một người yêu chỉ muốn một người đồng hành cùng thôi. Mình đã tưởng là bị từ chối rồi. Mãi mấy hôm sau mới biết là cô ấy đã đồng ý làm người yêu mình rồi >< và muốn mình quen một cách nghiêm túc thôi hihi"
         type="left-middle"
         image={
-          "https://res.cloudinary.com/dpohykmqq/image/upload/v1730297918/173675212_582366086073342_6809173916347679358_n_hmhidx.jpg"
+          "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730297918/173675212_582366086073342_6809173916347679358_n_hmhidx.jpg"
         }
       />
 
@@ -132,7 +132,7 @@ const LoveStory = () => {
         "
         type="right"
         image={
-          "https://res.cloudinary.com/dpohykmqq/image/upload/v1730295517/IMG_5124_ln4trr.jpg"
+          "https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730295517/IMG_5124_ln4trr.jpg"
         }
       />
     </div>
