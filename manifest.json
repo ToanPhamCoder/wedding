@@ -1,9 +1,9 @@
 {
-  "name": "Orderly Docs",
-  "short_name": "Orderly Docs",
+  "name": "Wedding",
+  "short_name": "Wedding",
   "start_url": ".",
   "background_color": "#202124",
-  "description": "Orderly Docs",
+  "description": "Wedding",
   "display": "standalone",
   "theme_color": "#202124",
   "cache-busting": {
