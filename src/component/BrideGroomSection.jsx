@@ -20,14 +20,22 @@ const BrideGroomSection = () => {
 
         {/* Image */}
         <BrideGroomContent
-          content="..."
-          name="Hồng Toàn"
-          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730348012/z5984328116970_f3ea09606dabfa3daa56311394605185_ntkzkz.jpg"
-        />
-        <BrideGroomContent
-          content="..."
+          content="<span>Nếu</span> cậu có làm thơ<br>
+<span>Đừng</span> làm thơ về tớ<br>
+<span>Vì</span> trái tim bé nhỏ<br>
+<span>Hông</span> chịu nổi vu vơ 🤭"
           name="Hưng Bình"
           url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730347990/z5984328111861_94a9ca9357a47ca95dcdd4f2cb17161e_rupfrd.jpg"
+        />
+        <BrideGroomContent
+          content="<span>Lỡ</span> đọc thơ lòng thêm mắc nợ<br>
+<span>Hoạ</span> đôi vần chẳng nỡ làm ngơ<br>
+<span>Yêu</span> Bơ gần xa cũng nhớ<br>
+<span>Thương</span> Bơ đêm đợi đêm chờ<br>
+<span>Xưa</span> giờ chẳng biết làm thơ<br>
+<span>Trong</span> lòng chỉ biết yêu Bơ nhiều lắm cơ 😜"
+          name="Hồng Toàn"
+          url="https://res.cloudinary.com/dpohykmqq/image/upload/h_1080/c_fit/v1730348012/z5984328116970_f3ea09606dabfa3daa56311394605185_ntkzkz.jpg"
         />
 
         {/* Signature */}

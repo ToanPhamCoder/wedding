@@ -8,7 +8,6 @@ const BrideGroomContent = ({ content, name, url }) => {
   return (
     <div className="bg-gray-100 py-4">
       <div className="container mx-auto text-center">
-
         {/* Image */}
         <div className="flex justify-center mb-6">
           <img
@@ -23,7 +22,12 @@ const BrideGroomContent = ({ content, name, url }) => {
 
         {/* Description */}
         <p className="text-gray-600 max-w-lg mx-auto mb-4">
-          {isExpanded ? content : shortText}
+          {/* Render HTML content with dangerouslySetInnerHTML */}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: isExpanded ? content : shortText,
+            }}
+          />
           <button
             className="text-blue-500 ml-2 hover:underline"
             onClick={() => setIsExpanded(!isExpanded)}
