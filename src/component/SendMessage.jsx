@@ -34,7 +34,9 @@ const Modal = ({ isOpen, onClose }) => {
         >
           &times;
         </button>
-        <h2 className="text-2xl font-semibold text-center mb-4">Gửi lời chúc</h2>
+        <h2 className="text-2xl font-semibold text-center mb-4">
+          Gửi lời chúc
+        </h2>
         <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -50,7 +52,9 @@ const Modal = ({ isOpen, onClose }) => {
           >
             <option value="">Bạn có thể tham dự không?</option>
             <option value="Có, tôi sẽ tới đó">Có, tôi sẽ tới đó</option>
-            <option value="Rất tiếc, tôi không thể tham dự">Rất tiếc, tôi không thể tham dự</option>
+            <option value="Rất tiếc, tôi không thể tham dự">
+              Rất tiếc, tôi không thể tham dự
+            </option>
           </select>
           <textarea
             placeholder="Lời chúc của bạn"
@@ -60,7 +64,7 @@ const Modal = ({ isOpen, onClose }) => {
           />
           <button
             type="submit"
-            className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+            className="p-2 bg-[#dcbdc5] text-white rounded hover:bg-[#d85878]"
           >
             Gửi
           </button>
