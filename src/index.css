@@ -5,8 +5,7 @@
 *,
 *::after,
 *::before {
-  font-family: 'Quicksand', sans-serif;
-  
+  font-family: "Quicksand", sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -89,7 +88,7 @@ html {
 body {
   margin: 0;
   background-color: #f0f0f0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 #heart-container {
@@ -228,7 +227,7 @@ body {
 }
 
 .react-calendar__tile:disabled {
-  color: gray  !important; /* Nếu có ô nào bị disable, bạn có thể thay đổi màu ở đây */
+  color: gray !important; /* Nếu có ô nào bị disable, bạn có thể thay đổi màu ở đây */
 }
 .hidden-left {
   opacity: 0;
@@ -246,7 +245,8 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 @keyframes blink-border {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 10px 5px rgba(200, 50, 70, 0.4); /* Subtle shadow */
   }
   50% {
@@ -257,4 +257,3 @@ body {
 .animate-blink-border {
   animation: blink-border 1s infinite;
 }
-

@@ -36,9 +36,7 @@ const CountdownComponent = () => {
   return (
     <div className="container mx-auto text-center py-10 font-sans">
       {/* Calendar */}
-      <h2 className="text-xl font-bold mb-4 text-gray-700">
-        Lễ Tân Hôn
-      </h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-700">Lễ Tân Hôn</h2>
       <h2 className="text-xl font-bold mb-4 text-gray-700">
         THÁNG 12 / 2024 (Dương Lịch)
       </h2>
@@ -49,8 +47,8 @@ const CountdownComponent = () => {
           className="w-full rounded-lg border" // Add border-radius with Tailwind
           tileDisabled={() => true} // Disable interaction with all day tiles
           formatShortWeekday={(locale, date) =>
-          ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'][date.getDay()]
-        } 
+            ["CN", "T2", "T3", "T4", "T5", "T6", "T7"][date.getDay()]
+          }
         />
       </div>
 
